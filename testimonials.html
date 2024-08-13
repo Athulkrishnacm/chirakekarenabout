@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Chirakkekaren Glass House</title>
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: #fff;
+            padding: 15px 0;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header__logo img {
+            max-width: 100px;
+        }
+
+        .header__menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .header__menu ul li {
+            margin: 0 15px;
+        }
+
+        .header__menu ul li a {
+            font-size: 16px;
+            color: #333;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .header__menu ul li a:hover {
+            color: #d52430;
+        }
+
+        .header__right {
+            display: flex;
+            align-items: center;
+        }
+
+        .canvas__open {
+            display: none;
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .subbrands {
+            background-color: #ff0011;
+            padding: 0px 0;
+            text-align: center;
+            color: #fff;
+            font-size: 11px;
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+
+        .subbrands p {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Testimonials Styling */
+        .testimonials {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .testimonial-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonial {
+            max-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            transition: transform 0.5s ease-in-out;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial img {
+            border-radius: 50%;
+            margin-bottom: 20px;
+            width: 150px;
+            height: 150px;
+        }
+
+        .testimonial p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .testimonial h4 {
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        @media (min-width: 769px) {
+            .testimonial-container {
+                flex-direction: row;
+            }
+
+            .testimonial {
+                flex: 1;
+            }
+        }
+
+        footer {
+            background-color: #515151;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .footer-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .footer-nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons img {
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .contact-buttons {
+            margin-top: 20px;
+        }
+
+        .contact-buttons .btn {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .contact-buttons .phone-btn {
+            background-color: #007bff;
+        }
+
+        .contact-buttons .btn:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .social-icons img,
+            .contact-buttons .btn {
+                margin: 10px 0;
+            }
+
+            .header__menu ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                padding: 10px 0;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .header__menu.active ul {
+                display: flex;
+            }
+
+            .canvas__open {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header with Navbar -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="header__logo">
+                <a href="/home"><img src="/public/img/logo.png" alt="Logo"></a>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+            <nav class="header__menu">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/testimonials">Testimonials</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="subbrands">
+        <p>HARDWARE I PLYWOOD I GLASS I INTERIOR I CUSTOMIZED GLASS PRINTING</p>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <img src="/ashion-main/public/assets/img/Picture1testimonilas.png" alt="Testimonial 1">
+                <p>Chirakkekaren Glass House has been my default for every hardware and glass need of mine since years. They have a very vast collection of products, and quality-wise, I have never been displeased. The cutting and beveling services of glass they provide are top-notch, all thanks to their German machinery. I highly recommend them for the best set of people with top-class products and services.</p>
+                <h4>Suresh Kurmar S</h4>
+            </div>
+            <div class="testimonial">
+                <img src="/ashion-main/public/assets/img/Picture2testimonillas.png" alt="Testimonial 2">
+                <p>As an interior designer, I rely on Chirakkekaren Glass House for high-quality materials and expert services. Their attention to detail in polishing, etching, and staining glass is remarkable. The team is knowledgeable and always ready to assist, ensuring that my projects are completed to perfection. Their 119 years of legacy and trust are well-deserved.</p>
+                <h4>Thomas George</h4>
+            </div>
+            <div class="testimonial">
+                <img src="/ashion-main/public/assets/img/Picture3testimonials.jpg" alt="Testimonial 3">
+                <p>I've been a loyal customer of Chirakkekaren Glass House for over a decade. Their commitment to quality and customer satisfaction is evident in everything they do. The vast selection of plywood and hardware, combined with their advanced glass services, makes them a one-stop shop for all my construction and interior needs. I wouldn't go anywhere else.</p>
+                <h4>Anakhesh K Nair</h4>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-42cd38b0-d335-4256-a10d-c5059e9e54ce" data-elfsight-app-lazy></div>
+
+
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6PgtrzQdL4dJ-SseJMlguvL3wMM8uVdrdTg&s" alt="Facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" alt="Instagram">
+                <img src="https://cdn-icons-png.freepik.com/256/5969/5969020.png?semt=ais_hybrid" alt="Twitter">
+               </div>
+            <div class="contact-buttons">
+                <a href="tel:+1234567890" class="btn phone-btn">Call Us</a>
+                <a href="mailto:info@example.com" class="btn">Email Us</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Chirakekaren</title>
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+	-webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        .header {
+            background-color: #fff;
+            padding: 15px 0;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header__logo img {
+            max-width: 100px;
+        }
+
+        .header__menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .header__menu ul li {
+            margin: 0 15px;
+        }
+
+        .header__menu ul li a {
+            font-size: 16px;
+            color: #333;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .header__menu ul li a:hover {
+            color: #d52430;
+        }
+
+        .header__right {
+            display: flex;
+            align-items: center;
+        }
+
+        .header__right__widget {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .header__right__widget li {
+            margin-left: 15px;
+        }
+
+        .header__right__widget li img {
+            max-width: 30px;
+        }
+
+        .canvas__open {
+            display: none;
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .subbrands {
+  background-color: #eb1b23;
+  padding: 0px 0; /* reduced padding to make it smaller */
+  text-align: center;
+  color: #fff;
+  font-size: 11px; /* reduced font size to make it smaller */
+  white-space: nowrap; /* to prevent text from wrapping */
+  overflow-x: hidden; /* to hide the overflow */
+}
+
+.subbrands p {
+  display: inline-block; /* to make the p tag an inline-block element */
+  animation: marquee 10s linear infinite; /* add animation */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+        .visit-us {
+            background-color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            color: #000000;
+        }
+
+        .visit-us h1 {
+            font-size: 36px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .left,
+        .right {
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .office-location {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .office-location img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+
+        .office-location h2 {
+            font-size: 18px;
+            color: #d52430;
+            margin: 15px 0 5px;
+        }
+
+        .office-location p {
+            font-size: 15px;
+            color: #333;
+        }
+        .left,
+        .right {
+            width: 100%;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .office-location {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .office-location img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            max-width: 400px;
+        }
+
+        .office-location h2 {
+            font-size: 18px;
+            color: #d52430;
+            margin: 15px 0 5px;
+        }
+
+        .office-location p {
+            font-size: 15px;
+            color: #333;
+        }
+        .form {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .form h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .form input,
+        .form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form input[type="submit"] {
+            background-color: #d52430;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+
+        .form input[type="submit"]:hover {
+            background-color: #a91c24;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        .map-container {
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        @media (min-width: 768px) {
+            .left,
+            .right {
+                width: 48%;
+            }
+
+            .header__menu ul {
+                justify-content: flex-start;
+            }
+
+            .header__logo {
+                text-align: left;
+            }
+
+            .header__right {
+                text-align: right;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .left {
+                width: 58%;
+            }
+
+            .right {
+                width: 38%;
+            }
+
+            .header__menu ul {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .canvas__open {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+
+            .header__menu ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                padding: 10px 0;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .header__menu ul li {
+                margin: 10px 0;
+            }
+
+            .header__right__widget {
+                justify-content: center;
+            }
+
+            .header__menu.active ul {
+                display: flex;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+
+            .office-location {
+                margin-bottom: 20px;
+            }
+
+            .form {
+                margin-top: 20px;
+            }
+        }
+
+
+        footer {
+    background-color: #515151;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.footer-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-icons img {
+    margin: 0 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.contact-buttons {
+    margin-top: 20px;
+}
+
+.contact-buttons .btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.contact-buttons .phone-btn {
+    background-color: #007bff;
+}
+
+.contact-buttons .btn:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .social-icons img, .contact-buttons .btn {
+        margin: 10px 0;
+    }
+}
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container-fluid">
+            <div class="header__logo">
+                <a href="/home"><img src="/public/img/logo.png" alt="Logo"></a>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+            <nav class="header__menu">
+                <ul>
+                    <li class="active"><a href="/home">Home</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/testimonials">Testimonials</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="subbrands">
+        <p>HARDWARE  I PLYWOOD  I GLASS  I  INTERIOR I CUSTOMIZED GLASS PRINTING  </p>
+    </section>
+
+    <section class="visit-us">
+        <h1>Visit Us</h1>
+    </section>
+
+    
+
+    <div style="text-align: center;">
+        <h3 style="
+        font-size: 15px;
+        font-weight: 100;
+    ">We have with us experienced, well-qualified and friendly staff to assist you for all your requirements of hardware, plywood, glass, and interior material</h3>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            
+            <div class="left">
+
+                <div class="form">
+                    <h3>Get in Touch With Us</h3>
+                    <form class="bg-light p-5 contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" name="name" id="name"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" name="email" id="email"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Phone Number" name="phone" id="phone"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" id="message" cols="30" rows="7" class="form-control"
+                                placeholder="Message" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                        </div>
+                    </form>
+                </div>
+               
+            </div>
+           
+
+            <div class="right">
+               
+                <div class="office-location">
+                    <img style="align-items: center;" src="/ashion-main/public/assets/img/contact1img.jpg" alt="Corporate Office">
+                    <h2>Corporate Office</h2>
+                    <p>Chirakekaren Glass House Pvt. Ltd. Saw Mill Road, Koorkenchery Thrissur: 680 007 Kerala, India. Phone: 0487 2429788, 0487 2442258</p>
+                </div>
+        
+                <div class="office-location">
+                    <!-- <img src="/ashion-main/public/assets/img/contact1img.jpg" alt="Branch Office"> -->
+                    <h2>Branch</h2>
+                    <p>Chirakekaren Glass House Pvt. Ltd. Gosaikunnu, Kuriachira Thrissur: 680006 Kerala, India. Phone: 0487 2254183, 0487 2254193</p>
+                </div>
+            
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7845.821552371365!2d76.21394419357911!3d10.507693599999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7ee32a30784d5%3A0x636237a56935e2f4!2sChirakekaren%20Glass%20House%20Pvt.Ltd!5e0!3m2!1sen!2sin!4v1722245618097!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <!-- <div class="social-icons">
+                <img src="https://via.placeholder.com/40" alt="Call">
+                <img src="https://via.placeholder.com/40" alt="Twitter">
+                <img src="https://via.placeholder.com/40" alt="LinkedIn">
+            </div> -->
+        </div>
+    </div>
+
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6PgtrzQdL4dJ-SseJMlguvL3wMM8uVdrdTg&s" alt="Facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" alt="Instagram">
+                <img src="https://cdn-icons-png.freepik.com/256/5969/5969020.png?semt=ais_hybrid" alt="Twitter">
+                <!-- <img src="https://via.placeholder.com/40" alt="LinkedIn"> -->
+            </div>
+            <div class="contact-buttons">
+                <a href="tel:+1234567890" class="btn phone-btn">Call Us</a>
+                <a href="https://wa.me/1234567890" target="_blank" class="btn whatsapp-btn">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script>
+        const canvasOpen = document.querySelector('.canvas__open');
+        const headerMenu = document.querySelector('.header__menu');
+
+        canvasOpen.addEventListener('click', () => {
+            headerMenu.classList.toggle('active');
+        });
+    </script>
+
+
+<script>
+    $("#contact-form").submit((e) => {
+        e.preventDefault()
+
+        const name = $("#name").val().trim();
+        const email = $("#email").val().trim();
+        const phone = $("#phone").val().trim();
+        const message = $("#message").val().trim();
+
+        if (name == '' || email == '' || phone == '' || message == '') {
+            alert("Please fill in all fields");
+            return
+        } else {
+            $('#ftco-loader').addClass('show');
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbx_5GAJymp9bcHqS_l1RvLZMmgyma1lk3184PBudUYNk66UmnNLaY1nyc4r3RlYETVk/exec",
+                data: $("#contact-form").serialize(),
+                method: "post",
+                success: function (response) {
+                    $('#ftco-loader').removeClass('show');
+                    alert("Message submitted successfully, We will contact you soon!")
+                    $("#contact-form")[0].reset();
+                },
+                error: function (err) {
+                    alert("Something Error")
+                }
+            })
+        }
+    })
+</script>
+
+</body>
+
+</html>

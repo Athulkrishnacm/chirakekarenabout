@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Chirakkekaren Glass House</title>
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: #fff;
+            padding: 15px 0;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header__logo img {
+            max-width: 100px;
+        }
+
+        .header__menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .header__menu ul li {
+            margin: 0 15px;
+        }
+
+        .header__menu ul li a {
+            font-size: 16px;
+            color: #333;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .header__menu ul li a:hover {
+            color: #d52430;
+        }
+
+        .header__right {
+            display: flex;
+            align-items: center;
+        }
+
+        .canvas__open {
+            display: none;
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .subbrands {
+  background-color: #ff0011;
+  padding: 0px 0; /* reduced padding to make it smaller */
+  text-align: center;
+  color: #fff;
+  font-size: 11px; /* reduced font size to make it smaller */
+  white-space: nowrap; /* to prevent text from wrapping */
+  overflow-x: hidden; /* to hide the overflow */
+}
+
+.subbrands p {
+  display: inline-block; /* to make the p tag an inline-block element */
+  animation: marquee 10s linear infinite; /* add animation */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+        /* About Us Page Styling */
+        .about-us-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px;
+            background-color: #fff;
+            max-width: 1200px;
+            margin: 50px auto;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-us-image {
+            flex: 1 1 300px;
+            max-width: 400px;
+            margin-right: 20px;
+        }
+
+        .about-us-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .about-us-content {
+            flex: 2 1 500px;
+        }
+
+        .about-us-content h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .about-us-content h2 {
+            font-size: 24px;
+            color: #d52430;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .about-us-content p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .about-us-content ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .about-us-content ul li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .about-us-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .about-us-image {
+                margin: 0 auto 20px;
+            }
+
+            .about-us-content {
+                text-align: center;
+            }
+
+            .canvas__open {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+
+            .header__menu ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #fff;
+                padding: 10px 0;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .header__menu ul li {
+                margin: 10px 0;
+            }
+
+            .header__menu.active ul {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .about-us-container {
+                max-width: 1200px;
+                margin: 50px auto;
+                padding: 50px;
+            }
+
+            .about-us-image {
+                margin-right: 40px;
+            }
+
+            .header__menu ul {
+                justify-content: flex-start;
+            }
+
+            .header__logo {
+                text-align: left;
+            }
+
+            .header__right {
+                text-align: right;
+            }
+        }
+
+
+        footer {
+    background-color: #515151;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.footer-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.social-icons img {
+    margin: 0 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.contact-buttons {
+    margin-top: 20px;
+}
+
+.contact-buttons .btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.contact-buttons .phone-btn {
+    background-color: #007bff;
+}
+
+.contact-buttons .btn:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .social-icons img, .contact-buttons .btn {
+        margin: 10px 0;
+    }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header with Navbar -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="header__logo">
+                <a href="/home"><img src="/public/img/logo.png" alt="Logo"></a>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+            <nav class="header__menu">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/shop">Shop</a></li>
+                    <li><a href="/testimonials">Testimonials</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="subbrands">
+        <p>HARDWARE  I PLYWOOD  I GLASS  I  INTERIOR I CUSTOMIZED GLASS PRINTING  </p>
+    </section>
+
+    <!-- About Us Section -->
+    <div class="about-us-container">
+        <div class="about-us-image">
+            <img src="/ashion-main/public/assets/img/aboutusimg.jpg" alt="Chirakkekaren Glass House">
+        </div>
+        <div class="about-us-content">
+            <h1>About Us</h1>
+            <p>For 119 years, Chirakkekaren Glass House has been the leading name in hardware, plywood, glass, and interior materials in the Thrissur district of central Kerala. Our rich legacy and unwavering trust have made us the go-to destination for all your building and interior needs.</p>
+
+            <h2>Our Legacy</h2>
+            <p>Founded over a century ago, Chirakkekaren Glass House has grown from a small establishment to a prominent retailer with three thriving shops. Our long-standing presence in the market is a testament to our commitment to quality, innovation, and customer satisfaction.</p>
+
+            <h2>Our Products</h2>
+            <p>With an extensive range of over 30,000 products, we cater to diverse needs and preferences. Whether you are looking for the finest hardware, premium plywood, or top-notch interior materials, we have it all. Our product categories include:</p>
+            <ul>
+                <li><strong>Hardware:</strong> From basic tools to advanced fixtures, we offer a comprehensive selection of hardware products.</li>
+                <li><strong>Plywood:</strong> Discover a variety of plywood options that combine durability and aesthetic appeal.</li>
+                <li><strong>Glass:</strong> Choose from an array of glass products that meet the highest standards of quality and craftsmanship.</li>
+                <li><strong>Interior Materials:</strong> Elevate your interiors with our exquisite collection of materials designed to enhance any space.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6PgtrzQdL4dJ-SseJMlguvL3wMM8uVdrdTg&s" alt="Facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" alt="Instagram">
+                <img src="https://cdn-icons-png.freepik.com/256/5969/5969020.png?semt=ais_hybrid" alt="Twitter">
+                <!-- <img src="https://via.placeholder.com/40" alt="LinkedIn"> -->
+            </div>
+            <div class="contact-buttons">
+                <a href="tel:+1234567890" class="btn phone-btn">Call Us</a>
+                <a href="https://wa.me/1234567890" target="_blank" class="btn whatsapp-btn">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+    
+
+
+    <script>
+        const canvasOpen = document.querySelector('.canvas__open');
+        const headerMenu = document.querySelector('.header__menu');
+
+        canvasOpen.addEventListener('click', () => {
+            headerMenu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+
+</html>
